@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import '../css/Cards.css';
+import TinderCard from 'react-tinder-card'
 
 function Cards() {
 
@@ -15,14 +16,32 @@ function Cards() {
         },
     ]);
 
+    const swiped = (direction, namedToDelete) => {
+        console.log('remove: ' + namedToDelete);
+    }
+
+    const outOfFrame = (name) => {
+        console.log(name + 'left!');
+    }
+
     return (
         <div className='cards'>
             <div className='cards__container'>
                 {
-                    people.map(person => (
-                        <h1>
-                            {person.name}
-                        </h1>
+                    people.map((person) => (
+                        <TinderCard
+                            className='swipe'
+                            key={person.name}
+                            preventSwipe={['up', 'down']}
+                            onSwipe={(dir) => swiped(dir, person.name)}
+                            onCardLeftScreen={() => outOfFrame(person.name)}
+                        >
+                            <div className='card' style={{backgroundImage: `url(${person.url}`}}>
+                                <h3>
+                                    {person.name}
+                                </h3>
+                            </div>
+                        </TinderCard>
                     ))
                 }
             </div>
