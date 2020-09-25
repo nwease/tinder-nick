@@ -1,0 +1,31 @@
+.swipe {
+	position: fixed;
+	bottom: 10vh;
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.swipe__large {
+	padding: 20px !important;
+}
+
+.swipe__repeat {
+
+}
+
+.swipe__left {
+
+}
+
+.swipe__star {
+
+}
+
+.swipe__right {
+
+}
+
+.swipe__flash {
+
+}
